@@ -1,0 +1,16 @@
+$GPGGA,184353.07,1929.045,S,02410.506,E,1,04,2.6,100.00,M,-33.9,M,,0000*6D
+
+UTC time: 18:43:53.07
+Latitude: 1929.045
+Nort or South: South
+Longtitude: 02410.506
+East or West: East
+GPS Quality Indicator: 1 (Gps Fix)
+Number of satelilites in view: 4
+Horizontal Dilution of precision: 2.6
+Antenna Altitude above/below mean-sea-level (geoid): 100
+Units of antenna altitude (meters): M
+Geoidal separation: -33.9
+Units of geoidal separation: M
+Age of differential GPS data: - (means DGPS is not used)
+Checksum: 0000*6D
