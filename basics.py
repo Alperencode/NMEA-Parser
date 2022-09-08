@@ -1,12 +1,10 @@
-import pynmea2,parsers
+import parsers
 
-unknown_sentences = []
+file = open("nmea_sentences.log", "r")
 
+result = []
 for sentence in file.readlines():
-    try:
-        msg = pynmea2.parse(sentence)
-        print(msg.sentence_type + " ", end='')
-        print(f"{msg.data} - {len(msg.data)}")
-    except:
-        unknown_sentences.append(msg.sentence_type)
-        
+    result.append(parsers.parse(sentence))
+
+for i in result:
+    print(i)
