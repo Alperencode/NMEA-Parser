@@ -1,0 +1,2 @@
+def parseGGA():
+    pass
