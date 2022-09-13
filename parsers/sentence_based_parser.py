@@ -1,3 +1,5 @@
+# Sentence type based parser
+
 def parseGGA(sentence):
     datadict = {}
     sentence = sentence.split(',')
