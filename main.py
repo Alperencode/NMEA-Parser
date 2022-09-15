@@ -1,10 +1,11 @@
-import parsers
+from parsers import sentence_based_parser
+from parsers import data_based_parser
 
 file = open("logs/nmea_sentences.log", "r")
 
 result = []
 for sentence in file.readlines():
-    result.append(parsers.parse(sentence))
+    print(data_based_parser.parse(sentence))
 
 for sentence in result:
     print(sentence)
