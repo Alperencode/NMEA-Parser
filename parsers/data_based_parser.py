@@ -8,12 +8,15 @@ import pynmea2
 
 dataDict = {}
 
+null = ""
+
 def parse(sentence):
     global dataDict 
     
     temp = sentence
     try:
-        dataDict["Checksum"] = temp.split(",")[-1].split("*")[-1][:2]
+        value = temp.split(",")[-1].split("*")[-1][:2]
+        dataDict["Checksum"] = value if value != null else dataDict["Checksum"]
         print("Checksum Updated: " + str(temp.split(",")[-1].split("*")[-1][:2]))
     except: pass
 
@@ -21,47 +24,58 @@ def parse(sentence):
     except: return dataDict
 
     try: 
-        dataDict["Sentence Type"] = sentence.sentence_type
+        value = sentence.sentence_type
+        dataDict["Sentence Type"] = value if value != null else dataDict["Sentence Type"]
         print("Sentence Type Updated: " + sentence.sentence_type)
     except: pass
     try: 
-        dataDict["UTC Time"] = sentence.timestamp
+        value = sentence.timestamp
+        dataDict["UTC Time"] = value if value != null else dataDict["UTC Time"] 
         print("UTC Time Updated: " + str(sentence.timestamp))
     except: pass
     try: 
-        dataDict["Latitude"] = sentence.latitude
+        value = sentence.latitude
+        dataDict["Latitude"] = value if value != null else dataDict["Latitude"] 
         print("Latitude Updated: " + str(sentence.latitude))
     except: pass
     try: 
-        dataDict["Longitude"] = sentence.longitude
+        value = sentence.longitude
+        dataDict["Longitude"] = value if value != null else dataDict["Longitude"] 
         print("Longitude Updated: " + str(sentence.longitude))
     except: pass
     try: 
-        dataDict["GPS Quality"] = sentence.gps_qual
+        value = sentence.gps_qual
+        dataDict["GPS Quality"] = value if value != null else dataDict["GPS Quality"] 
         print("GPS Quality Updated: " + str(sentence.gps_qual))
     except: pass
     try: 
-        dataDict["Number of Satellites"] = sentence.num_sats
+        value = sentence.num_sats
+        dataDict["Number of Satellites"] = value if value != null else dataDict["Number of Satellites"]
         print("Number of Satellites Updated: " + str(sentence.num_sats))
     except: pass
     try: 
-        dataDict["Horizontal Dilution of Precision"] = sentence.horizontal_dil
+        value = sentence.horizontal_dil
+        dataDict["Horizontal Dilution of Precision"] = value if value != null else dataDict["Horizontal Dilution of Precision"]
         print("Horizontal Dilution of Precision Updated: " + str(sentence.horizontal_dil))
     except: pass
     try: 
-        dataDict["Altitude"] = sentence.altitude
+        value = sentence.altitude
+        dataDict["Altitude"] = value if value != null else dataDict["Altitude"]
         print("Altitude Updated: " + str(sentence.altitude))
     except: pass
     try: 
-        dataDict["Geoidal Separation"] = sentence.geo_sep
+        value = sentence.geo_sep
+        dataDict["Geoidal Separation"] = value if value != null else dataDict["Geoidal Separation"]
         print("Geoidal Separation Updated: " + str(sentence.geo_sep))
     except: pass
     try: 
-        dataDict["Age of Differential GPS Data"] = sentence.age_gps_data
+        value = sentence.age_gps_data
+        dataDict["Age of GPS Data"] = value if value != null else dataDict["Age of GPS Data"]
         print("Age of Differential GPS Data Updated: " + str(sentence.age_gps_data))
     except: pass
     try: 
-        dataDict["Differential Reference Station ID"] = sentence.ref_station_id
+        value = sentence.ref_station_id
+        dataDict["Reference Station ID"] = value if value != null else dataDict["Reference Station ID"]
         print("Differential Reference Station ID Updated: " + str(sentence.ref_station_id))
     except: pass
 
