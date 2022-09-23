@@ -1,17 +1,26 @@
 # Data based parser
-# Main plan for this parser is updating dataDict with new values if they are available
-# In this way we don't need to parse for sentence type
-# We are trying to get all data that we need and if its available we are updating dataDict
-# If we are not able to get data we are using the last valid value
+# Main idea:
+#   - Parse the upcoming sentence
+#   - Update the dictionary with the new data
+#   - Return the dictionary
+
 import pynmea2
 
-attrs = []
+result_data = {}
 
 def parse(sentence):
+    """
+    Parsing the sentence using pynmea2
+    We are looping through the sentence fields (fields are the data in the sentences)
+    and adding that data with its name to the result dictionary
+    """
     try:
         msg = pynmea2.parse(sentence)
         for key in msg.fields:
-            if key[1] not in attrs:
-                attrs.append(key[1])
+            result_data[key[0]] = getattr(msg, str(key[1])) if getattr(msg, str(key[1])) != "" else result_data[key[0]]
     except:
         pass
+
+def get_result():
+    "Getter for the result dictionary"
+    return result_data
