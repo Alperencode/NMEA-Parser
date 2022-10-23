@@ -7,7 +7,10 @@ Using [pynmea2](https://github.com/Knio/pynmea2) module.
 
 # Installation
 
-You just need to copy the parsers directory to your project directory.
+Download the parsers folder using Releases section or clone the repository.
+
+
+Then you just need to copy the parsers directory to your project directory.
 In that way you can access the parsers module.
 
 <br>
