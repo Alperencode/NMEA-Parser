@@ -54,7 +54,7 @@ As you can see in `main.py` as well you can read sentences from a anywhere you w
 Main idea is; extract specific data according to the type of sentence.
 In that way we dont need to try to parse all data that this sentence could have.
 
-And we can to that very easily using pynmea2.
+And we can do that very easily using pynmea2.
 I just needed to use little python trick to get the data from sentence type.
 Because pynmea2 is creating each sentence type as a class and I needed to acces the class attributes.
 
